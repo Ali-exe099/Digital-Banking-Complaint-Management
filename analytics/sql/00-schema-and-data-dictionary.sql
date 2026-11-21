@@ -1,0 +1,23 @@
+-- Digital Banking Complaint Management: RBI public-data analysis
+-- Database: SQLite. Tables are already populated in rbi_complaints_analysis.sqlite.
+-- For a fresh database, import the CSV files in analytics/data using SQLite .import or a GUI.
+
+-- Core analytical tables:
+-- fact_bank_complaint_category
+-- fact_orbio_entity_group
+-- fact_orbio_channel_mix
+-- dim_state_complaint_rate
+-- fact_orbio_disposal_overview
+-- fact_crpc_flow_metrics
+-- fact_orbio_disposal_nature
+-- fact_orbio_nonmaintainable_reasons
+-- fact_orbio_maintainable_outcomes
+-- fact_quarterly_category_all_entities
+-- source_register
+
+-- Data grain:
+-- bank category: one row per fiscal year and complaint category (bank entities only)
+-- entity group: one row per fiscal year and regulated-entity group
+-- channel: one row per fiscal year and receipt mode at ORBIOs
+-- state: one row per state/UT (complaints per lakh accounts, 31-Mar-2025)
+-- quarterly category: one row per quarter and complaint category; aggregate RB-IOS scope
