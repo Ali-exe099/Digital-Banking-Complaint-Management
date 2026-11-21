@@ -1,135 +1,110 @@
-# Digital Banking Complaint Management
+# Digital Banking Complaint Management | Business Analysis & Power BI Portfolio Project
 
-**Product Business Analysis case study | India-focused digital banking context**
+A portfolio case study combining business analysis documentation, complaint-process design, SQL analysis and a Power BI dashboard using publicly available Reserve Bank of India (RBI) aggregated complaint statistics.
 
-This project proposes a structured complaint-management product to improve complaint visibility, classification, ownership, TAT monitoring, customer communication and escalation handling.
+> **Project scope and evidence note:** This is an independent portfolio case study. It is not a deployed banking application and does not represent the internal process of a named bank. The analytics use public, aggregated RBI data—not private customer records or bank-internal case-level data. The proposed AS-IS process is a hypothesis and would require stakeholder validation in a real organisation.
 
-> **Project boundary and evidence note:** This is a product-analysis and process-design case study, not a live bank implementation and not a description of a named bank's production workflow. The AS-IS process is a conceptual hypothesis awaiting stakeholder validation. No private bank/customer complaint data is used. No software tests have been executed and no operational improvements are claimed.
+## Project objective
 
-## Project at a glance
+Explore how a digital bank could improve complaint visibility, classification, ownership, turnaround-time monitoring, customer communication and escalation handling, while using public RBI complaint statistics to understand external complaint patterns.
 
-| Area | Definition |
-|---|---|
-| Business question | How could a digital bank manage complaints with clearer classification, ownership, TAT visibility, communication and appropriate escalation? |
-| Users / stakeholders | Customers, Support Agents, Team Leads, Operations, Bank Management, Product, Security/Fraud, Compliance, Development and QA |
-| Core product capabilities | Complaint intake, categorisation, priority suggestion, human confirmation, team assignment, TAT monitoring, escalation, customer updates, review and reporting |
-| Product principle | Category, operational priority and ownership are separate attributes |
-| Governance principle | Avoidable operational escalation is measured separately from fraud/security referrals and mandatory regulatory review |
-| Status | BA documentation and proposed workflow package; implementation and empirical KPI validation are not part of this repository |
+## Dashboard overview
 
-## Documentation index
+The Power BI report currently contains four pages:
 
-| # | Document | What it covers |
-|---:|---|---|
-| 01 | [Project Charter](01-project-charter.md) | Business objective, scope, success measures, assumptions, risks and deliverables |
-| 02 | [Stakeholder Analysis](docs/02-stakeholder-analysis.md) | Stakeholder register, influence/interest, RACI and communication plan |
-| 03 | [AS-IS and TO-BE Process Analysis](docs/03-process-analysis.md) | Current-state hypothesis, process questions, future workflow, KPIs and change summary |
-| 04 | [Business Requirements Document (BRD)](docs/04-business-requirements-document.md) | Problem statement, business objectives, scope, 18 business requirements, rules, KPIs and risks |
-| 05 | [Functional Requirements Document (FRD)](docs/05-functional-requirements-document.md) | 68 functional requirements, roles, data fields, workflow controls and non-functional requirements |
-| 06 | [User Stories and Acceptance Criteria](docs/06-user-stories-and-acceptance-criteria.md) | 20 user stories and Given/When/Then acceptance criteria |
-| 07 | [Requirements Traceability Matrix (RTM)](docs/07-requirements-traceability-matrix.md) | BRD → FRD → User Story → acceptance-criteria and test-design links |
-| 07A | [RTM functional detail (CSV)](docs/07-rtm-functional-requirement-detail.csv) | Filterable FR-level traceability extract |
-| 08 | [Test Scenarios and Detailed Test Cases](docs/08-test-scenarios-and-cases.md) | 32 planned functional, negative, regulatory-control and non-functional test cases |
-| 09 | [Regulatory and Public References](docs/09-regulatory-and-public-references.md) | Official RBI sources and limitations on regulatory applicability |
+| Page | Focus | Main analysis |
+|---|---|---|
+| 1. Executive Overview | High-level complaint picture | Key complaint indicators, entity groups, category distribution and annual trends |
+| 2. Category Trends | Complaint types over time | Category-level volumes and year-on-year movement |
+| 3. Channels & Geography | How and where complaints are received | Receipt-channel mix and state/UT complaints per lakh accounts |
+| 4. Disposal Analysis | RBI Ombudsman disposal patterns | Complaints handled/disposed, disposal rate, pending cases, maintainable and non-maintainable outcomes, and closure reasons |
 
+**Current visual note:** Page 3 uses a state-wise chart for complaints per lakh accounts. An India map was considered but has not yet replaced that chart.
 
-## Public data analysis: RBI complaint trends (SQL + Power BI)
+## Business analysis documentation
 
-A separate analytics workstream uses official RBI aggregated complaint statistics to analyse bank complaint categories, receipt channels, regional complaint rates and ORBIO/CRPC disposal patterns. It includes CSV datasets, a preloaded SQLite database, reproducible SQL queries, findings, data reconciliation checks, DAX measures and a Power BI dashboard build guide.
+The following project documents are available directly from the repository root. Select a document to open it on GitHub.
 
-- [Analytics workstream overview](analytics/README.md)
-- [RBI public complaint data analysis and findings](analytics/reports/RBI-Public-Complaint-Data-Analysis.md)
-- [Data dictionary](analytics/data/Data-Dictionary.md)
-- [Power BI dashboard build guide](analytics/powerbi/Power-BI-Dashboard-Build-Guide.md)
-- [SQL analysis queries](analytics/sql/01-analysis-queries.sql)
-- [Data source register](analytics/data/source_register.csv)
+1. [Project Charter](01-project-charter.md)
+2. [Stakeholder Analysis](02-stakeholder-analysis.md)
+3. [Process Analysis](03-process-analysis.md)
+4. [Business Requirements Document (BRD)](04-business-requirements-document.md)
+5. [Functional Requirements Document (FRD)](05-functional-requirements-document.md)
+6. [User Stories and Acceptance Criteria](06-user-stories-and-acceptance-criteria.md)
+7. [Requirements Traceability Matrix (RTM)](07-requirements-traceability-matrix.md)
+8. [RTM Functional Requirement Detail (CSV)](07-rtm-functional-requirement-detail.csv)
+9. [Test Scenarios and Cases](08-test-scenarios-and-cases.md)
+10. [Regulatory and Public References](09-regulatory-and-public-references.md)
 
-**Evidence boundary:** These are aggregated external RBI Ombudsman statistics, not bank-internal case-level records. The workstream does not calculate bank resolution TAT, internal SLA attainment, agent productivity, reassignment or operational escalation rates. The quarterly FY2025-26 category snapshot is kept separate from the annual bank-only series because the source table has a broader RB-IOS scope.
+These artefacts describe a proposed complaint-management capability, including complaint intake, categorisation, priority confirmation, team ownership, TAT monitoring, escalation, customer updates and reporting.
 
-## Process workflows
+## Analytics and technical work
 
-### AS-IS – conceptual current-state hypothesis
+- **Power BI:** Four-page report with KPI cards, trend and comparison visuals, category analysis, channel analysis, state-level complaint-rate analysis and disposal analysis.
+- **SQL:** Reproducible SQLite-compatible analysis queries.
+- **DAX:** Measures used for report KPIs and analysis.
+- **Data storage:** SQLite database containing the prepared analysis tables.
+- **Documentation:** Analysis report and Power BI dashboard build guide.
 
-![AS-IS complaint process](diagrams/01-as-is-workflow.png)
+Supporting analytics, workflow diagrams, the Power BI file and screenshots will be added to their respective folders as they are verified and uploaded.
 
-[Open editable AS-IS diagram](diagrams/01-as-is-workflow.drawio)
+## Key business questions
 
-### TO-BE – proposed future state
+1. Which complaint categories account for a larger share of reported complaints?
+2. How have reported complaint categories changed across financial years?
+3. What is the reported mix of complaint receipt channels?
+4. How do state/UT complaint rates compare when expressed per lakh accounts?
+5. What do RBI Ombudsman disposal patterns and non-maintainable closure reasons indicate?
+6. What product and process capabilities could improve complaint visibility, ownership and escalation governance?
 
-![TO-BE complaint process](diagrams/02-to-be-workflow.png)
+## Data sources and limitations
 
-[Open editable TO-BE diagram](diagrams/02-to-be-workflow.drawio)
+The analytics workstream is based on published RBI aggregated complaint statistics, including the RBI Annual Report of Ombudsman Scheme 2024–25 and the RBI report containing quarterly category data for October 2025–March 2026.
 
-The diagrams use swimlanes and BPMN-style events, activities, gateways and flows. The AS-IS must be validated with an actual bank before being treated as the confirmed current process.
+The report distinguishes annual bank-complaint data from broader RB-IOS quarterly category data where the source scopes differ. Do not combine these datasets as though they represent the same population.
 
-## Key business design decisions
+The available public data does **not** provide bank-internal case-level timestamps, agent assignments, reassignment history or internal workflow events. Therefore, this project does not claim to measure:
 
-1. **Category, priority and ownership are distinct.** Category identifies the service/issue; priority indicates urgency under approved criteria; ownership identifies the accountable team or person.
-2. **Human review remains part of classification.** The system may suggest a category/priority, but an authorised agent confirms or overrides it and records a reason.
-3. **TAT is policy-driven.** No universal complaint deadline is assumed; the correct rule depends on the service and applicable bank, regulator or network requirements.
-4. **Escalation types are separated.** Operational escalation, fraud/security referral and mandatory Internal Ombudsman review are not the same process or KPI.
-5. **Targets are not fabricated.** Baselines and performance targets remain to be approved from reliable bank data.
+- Average bank complaint resolution time or internal TAT
+- Internal bank SLA attainment
+- Agent productivity or workload
+- Internal complaint backlog by team
+- Reassignment rate or operational escalation rate
+- Before-and-after operational improvement
 
-## Regulatory context
+The RBI Ombudsman disposal rate is an external Ombudsman process metric; it is not a bank's internal SLA or an individual customer's resolution time.
 
-The BRD documents relevant RBI context, including the [Commercial Banks – Internal Ombudsman Directions, 2026](https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=13271) and [Reserve Bank – Integrated Ombudsman Scheme, 2026 FAQs](https://rbi.org.in/scripts/FAQDisplay.aspx?Id=153). Applicability depends on the regulated entity and complaint. The project does not present the documents as legal advice; an actual bank's Compliance/Legal function must confirm the rule catalogue, exclusions and implementation.
-
-## Repository structure
+## Current repository files
 
 ```text
 Digital-Banking-Complaint-Management/
 ├── README.md
-├── diagrams/
-│   ├── 01-as-is-workflow.drawio
-│   ├── 01-as-is-workflow.png
-│   ├── 02-to-be-workflow.drawio
-│   └── 02-to-be-workflow.png
-├── analytics/
-│   ├── README.md
-│   ├── data/
-│   ├── sql/
-│   ├── powerbi/
-│   ├── reports/
-│   └── rbi_complaints_analysis.sqlite
-└── docs/
-    ├── 01-project-charter.md
-    ├── 02-stakeholder-analysis.md
-    ├── 03-process-analysis.md
-    ├── 04-business-requirements-document.md
-    ├── 05-functional-requirements-document.md
-    ├── 06-user-stories-and-acceptance-criteria.md
-    ├── 07-requirements-traceability-matrix.md
-    ├── 07-rtm-functional-requirement-detail.csv
-    ├── 08-test-scenarios-and-cases.md
-    └── 09-regulatory-and-public-references.md
+├── 01-project-charter.md
+├── 02-stakeholder-analysis.md
+├── 03-process-analysis.md
+├── 04-business-requirements-document.md
+├── 05-functional-requirements-document.md
+├── 06-user-stories-and-acceptance-criteria.md
+├── 07-requirements-traceability-matrix.md
+├── 07-rtm-functional-requirement-detail.csv
+├── 08-test-scenarios-and-cases.md
+└── 09-regulatory-and-public-references.md
 ```
 
-## Completion status
+Additional folders and files (such as workflow diagrams, SQL scripts, analysis outputs, source data, the Power BI `.pbix` file and dashboard screenshots) should be added only after confirming they are present, accurate and suitable for public sharing. Keep large source datasets and files subject to licensing or redistribution restrictions out of the repository; link to the original public source where appropriate.
 
-| Workstream | Status | Evidence / limitation |
-|---|---|---|
-| Project Charter | Drafted | Business objectives and scope defined |
-| Stakeholder Analysis | Drafted | Stakeholders, proposed RACI and communication plan |
-| Process Analysis | Drafted | AS-IS hypothesis and TO-BE proposal; AS-IS requires validation |
-| Workflow Diagrams | Created | Editable draw.io source and PNG previews |
-| BRD | Draft for validation | 18 business requirements and 16 business rules |
-| FRD | Draft for validation | 68 functional requirements and 10 NFRs |
-| User Stories / Acceptance Criteria | Draft for validation | 20 user stories and Given/When/Then criteria |
-| RTM | Draft for validation | Traceability and test-design mapping; acceptance-criteria links at story level |
-| Test Design | Prepared | 32 planned test cases; all Not Run |
-| Working application / integrations | Not built | Outside current portfolio scope |
-| Public RBI aggregated data analysis | Prepared | CSV datasets, SQLite, SQL queries, findings and Power BI build guide; not internal bank case data |
-| Actual Power BI dashboard | Build guide supplied | Build the PBIX in Power BI Desktop using the supplied CSVs and DAX; no PBIX is claimed as completed |
-| Measured business outcomes | Not claimed | Requires baseline, implementation and post-change measurement |
+## How to review
 
-## How to review this project
+1. Start with the project objective and scope in this README.
+2. Review the [Project Charter](01-project-charter.md) and [Stakeholder Analysis](02-stakeholder-analysis.md).
+3. Follow the requirements chain through the [BRD](04-business-requirements-document.md), [FRD](05-functional-requirements-document.md), [User Stories and Acceptance Criteria](06-user-stories-and-acceptance-criteria.md) and [RTM](07-requirements-traceability-matrix.md).
+4. Review the [Process Analysis](03-process-analysis.md), [Test Scenarios and Cases](08-test-scenarios-and-cases.md) and [Regulatory and Public References](09-regulatory-and-public-references.md).
+5. Inspect the Power BI report and supporting analytics when those files are added to the repository.
 
-1. Start with the [Project Charter](docs/01-project-charter.md).
-2. Review the [Stakeholder Analysis](docs/02-stakeholder-analysis.md) and [Process Analysis](docs/03-process-analysis.md).
-3. Follow the requirements chain from BRD to FRD, User Stories and RTM.
-4. Open the test plan and see how requirements are intended to be validated.
-5. Inspect the editable draw.io diagrams if you want to review the process model itself.
+## Tools and skills demonstrated
 
----
+Business Analysis · Requirements Elicitation & Documentation · Process Mapping · User Stories · Acceptance Criteria · RTM · SQL · SQLite · Power BI · DAX · Data Analysis · KPI Design · Data Interpretation
 
-**Portfolio note:** This repository demonstrates business analysis artefacts and proposed product design. It should not be described as a deployed banking system, completed software test cycle or measured operational transformation.
+## Disclaimer
+
+This project is for learning and portfolio demonstration. It is not legal, regulatory or operational advice, and it does not imply implementation or endorsement by RBI or any bank.
