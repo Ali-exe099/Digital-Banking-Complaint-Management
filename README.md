@@ -21,7 +21,7 @@ This project proposes a structured complaint-management product to improve compl
 
 | # | Document | What it covers |
 |---:|---|---|
-| 01 | [Project Charter](docs/01-project-charter.md) | Business objective, scope, success measures, assumptions, risks and deliverables |
+| 01 | [Project Charter](01-project-charter.md) | Business objective, scope, success measures, assumptions, risks and deliverables |
 | 02 | [Stakeholder Analysis](docs/02-stakeholder-analysis.md) | Stakeholder register, influence/interest, RACI and communication plan |
 | 03 | [AS-IS and TO-BE Process Analysis](docs/03-process-analysis.md) | Current-state hypothesis, process questions, future workflow, KPIs and change summary |
 | 04 | [Business Requirements Document (BRD)](docs/04-business-requirements-document.md) | Problem statement, business objectives, scope, 18 business requirements, rules, KPIs and risks |
